@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GalaSoft.MvvmLight;
+﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 
 namespace Movies
@@ -28,16 +23,18 @@ namespace Movies
             }
         }
 
-        public RelayCommand MyCommand { get; } 
+        public RelayCommand MyCommand { get; }
+        public LogInViewModel ViewModelBase { get; private set; }
 
         void MyCommandExecute()
         {
-            new LogIn();
+            //change view
+            ViewModelBase = new LogInViewModel();
         }
 
         bool MyCommandCanExecute()
         {
-            return Name!="Bienvenue";
+            return true;
         }
     }
 }
