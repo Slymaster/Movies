@@ -1,17 +1,23 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using System;
+using System.Windows;
 
 namespace Movies
 {
     public class MainViewModel : ViewModelBase
     {
+        public RelayCommand MyCommand { get; }
+
+        private string _name;
+
+
         public MainViewModel()
         {
             Name = "Veuillez vous identifier";
             MyCommand = new RelayCommand(MyCommandExecute, MyCommandCanExecute);
         }
 
-        private string _name;
 
         public string Name
         {
@@ -23,13 +29,12 @@ namespace Movies
             }
         }
 
-        public RelayCommand MyCommand { get; }
-        public LogInViewModel ViewModelBase { get; private set; }
-
         void MyCommandExecute()
         {
-            //change view
-            ViewModelBase = new LogInViewModel();
+            Console.WriteLine("clic");
+            //MessageBox.Show("test");
+            LogIn toto = new LogIn();
+            toto.ShowDialog();
         }
 
         bool MyCommandCanExecute()

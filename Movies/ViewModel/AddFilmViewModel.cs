@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Movies
 {
-    class RegistrationModel
+    class AddFilmViewModel
     {
     }
 }
