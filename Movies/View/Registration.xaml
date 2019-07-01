@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Movies"
         mc:Ignorable="d"
+        DataContext="{Binding Source={StaticResource VMLocator}, Path=RegistrationVM}"
         Title="Registration" Height="450" Width="800">
     <Grid>
         <Label Content="Formulaire d'inscription" HorizontalAlignment="Left" Margin="350,20,0,0" VerticalAlignment="Top"/>

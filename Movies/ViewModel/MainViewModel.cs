@@ -1,7 +1,5 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
-using System;
-using System.Windows;
 
 namespace Movies
 {
@@ -31,8 +29,6 @@ namespace Movies
 
         void MyCommandExecute()
         {
-            Console.WriteLine("clic");
-            //MessageBox.Show("test");
             LogIn toto = new LogIn();
             toto.ShowDialog();
         }

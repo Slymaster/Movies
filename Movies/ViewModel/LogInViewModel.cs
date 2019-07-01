@@ -1,6 +1,5 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
-using System;
 using System.Windows;
 
 namespace Movies
@@ -43,12 +42,13 @@ namespace Movies
 
         void MyCommandExecuteRegister()
         {
-            MessageBox.Show("ouverture page inscription");
+            LogIn toto = new LogIn();
+            toto.ShowDialog();
         }
 
         void MyCommandExecuteConnect()
         {
-            if(Name!=null)
+            if (Name != null)
                 if (Name.Equals("toto"))
                     MessageBox.Show("Good, " + Name + "!");
                 else
