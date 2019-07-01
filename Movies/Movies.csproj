@@ -73,6 +73,7 @@
     <Compile Include="AddFilm.xaml.cs">
       <DependentUpon>AddFilm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Registration.xaml.cs" />
     <Compile Include="ViewModel\AddFilmViewModel.cs" />
     <Compile Include="LogIn.xaml.cs">
       <DependentUpon>LogIn.xaml</DependentUpon>

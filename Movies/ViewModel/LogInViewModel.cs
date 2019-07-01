@@ -42,7 +42,7 @@ namespace Movies
 
         void MyCommandExecuteRegister()
         {
-            LogIn toto = new LogIn();
+            Registration toto = new Registration();
             toto.ShowDialog();
         }
 
