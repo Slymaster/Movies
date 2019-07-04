@@ -13,42 +13,17 @@ namespace Movies
 
 
         private string _name;
-        /*        private string _password;*/
+        private string _password;
         private string _email;
 
         public RegistrationViewModel()
         {
-            TryRegistration = new RelayCommand(Try, true);
-            Home = new RelayCommand(ReturnHome, true);
+            TryRegistration = new RelayCommand(Try, true); // test la validité des données envoyées
+            Home = new RelayCommand(ReturnHome, true); // retourne à l'accueil
+
+
+
         }
-
-
-
-        /*        public void Execute(object parameter)
-                {
-                    var passwordBox = parameter as PasswordBox;
-                    var password = passwordBox.Password;
-
-                    if (password == "toto")
-                    {
-                        MessageBox.Show("good");
-                    }
-                    else
-                    {
-                        MessageBox.Show("not good");
-
-                    }
-                }*/
-
-        /*        public string Password
-                {
-                    get { return _password; }
-                    set
-                    {
-                        _password = value;
-                        RaisePropertyChanged();
-                    }
-                }*/
 
         public string Name
         {
@@ -72,6 +47,16 @@ namespace Movies
             }
         }
 
+        public string Password
+        {
+            get { return _password; }
+            set
+            {
+                _password = value;
+                RaisePropertyChanged();
+            }
+        }
+
         private void ReturnHome()
         {
             MainWindow toto = new MainWindow();
@@ -86,6 +71,8 @@ namespace Movies
 
         private void Try()
         {
+            if (Password != null)
+                MessageBox.Show("Votre mdp est: " + Password);
             if (Name != null)
                 if (Name.Equals("toto"))
                     MessageBox.Show("Good, " + Name + "!");
@@ -95,3 +82,31 @@ namespace Movies
 
     }
 }
+
+
+
+/*        public void Execute(object parameter)
+        {
+            var passwordBox = parameter as PasswordBox;
+            var password = passwordBox.Password;
+
+            if (password == "toto")
+            {
+                MessageBox.Show("good");
+            }
+            else
+            {
+                MessageBox.Show("not good");
+
+            }
+        }*/
+
+/*        public string Password
+        {
+            get { return _password; }
+            set
+            {
+                _password = value;
+                RaisePropertyChanged();
+            }
+        }*/
