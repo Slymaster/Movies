@@ -1,6 +1,8 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using System;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace Movies
 {
@@ -9,10 +11,51 @@ namespace Movies
         private string _name;
         private string _password;
 
+
+        public Action CloseAction { get; set; } 
+        /**
+         * Si le mot de passe est bon on ferme cette fenêtre
+         * Si click sur bouton retour on ferme cette fenêtre
+         * sinon on reste
+         */
+
+
+
+        public PasswordCmd Pass { get; set; }
+
+        public void Execute(object parameter)
+        {
+            var passwordBox = parameter as PasswordBox;
+            var password = passwordBox.Password;
+
+            if (password == "toto")
+            {
+                MessageBox.Show("good");
+            }
+            else
+            {
+                MessageBox.Show("not good");
+
+            }
+        }
+
         public LogInViewModel()
         {
-            MyCommandRegister = new RelayCommand(MyCommandExecuteRegister, true);
-            MyCommandConnect = new RelayCommand(MyCommandExecuteConnect, true);
+            /* MyCommandRegister = new RelayCommand(MyCommandExecuteRegister, true);
+             MyCommandConnect = new RelayCommand(MyCommandExecuteConnect, true);*/
+            Home = new RelayCommand(ReturnHome, true);
+        }
+
+        private void ReturnHome()
+        {
+            MainWindow toto = new MainWindow();
+            CloseAction();
+            toto.ShowDialog();
+        }
+
+        private void MyFunction()
+        {
+            Pass = new PasswordCmd();
         }
 
         public string Name
@@ -35,6 +78,7 @@ namespace Movies
             }
         }
 
+        public RelayCommand Home { get; }
 
         public RelayCommand MyCommandRegister { get; }
         public RelayCommand MyCommandConnect { get; }

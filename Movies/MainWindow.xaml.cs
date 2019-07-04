@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 
 namespace Movies
 {
@@ -10,6 +11,10 @@ namespace Movies
         public MainWindow()
         {
             InitializeComponent();
+            MainViewModel vm = new MainViewModel();
+            this.DataContext = vm;
+            if (vm.CloseAction == null)
+                vm.CloseAction = new Action(this.Close);
         }
     }
 }
