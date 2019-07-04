@@ -41,8 +41,8 @@ namespace Movies
 
         public LogInViewModel()
         {
-            /* MyCommandRegister = new RelayCommand(MyCommandExecuteRegister, true);
-             MyCommandConnect = new RelayCommand(MyCommandExecuteConnect, true);*/
+            MyCommandRegister = new RelayCommand(ToRegister, true);
+            MyCommandConnect = new RelayCommand(MyCommandExecuteConnect, true);
             Home = new RelayCommand(ReturnHome, true);
         }
 
@@ -84,9 +84,10 @@ namespace Movies
         public RelayCommand MyCommandConnect { get; }
 
 
-        void MyCommandExecuteRegister()
+        void ToRegister()
         {
             Registration toto = new Registration();
+            CloseAction();
             toto.ShowDialog();
         }
 

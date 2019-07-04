@@ -9,14 +9,20 @@
         Title="Movies NET" Height="450" Width="800">
     <Grid>
 
-        <!-- Title -->
-
-
         <!-- Welcome on the movie interface -->
         <Label Content="{Binding Name}" HorizontalAlignment="Left" Margin="20,15,0,0" VerticalAlignment="Top" FontFamily="Open Sans"/>
-        <Button x:Name="button1" Content="Se connecter" Command="{Binding MyCommand}" HorizontalAlignment="Left" Margin="200,20,0,0" VerticalAlignment="Top" Width="75"/>
 
-        <Button Content="Find" HorizontalAlignment="Left" Margin="700,20,0,0" VerticalAlignment="Top" Width="75"/>
+        <!-- Si le user est identifié -->
+        <Button Command="{Binding MyCommandAddFilm}" Content="Ajouter un film" HorizontalAlignment="Left" Margin="280,20,0,0" VerticalAlignment="Top" Width="95"/>
+
+        <!-- Se connecter -->
+        <Button Command="{Binding MyCommandConnect}" x:Name="button1" Content="Se connecter"  HorizontalAlignment="Left" Margin="200,20,0,0" VerticalAlignment="Top" Width="75"/>
+
+        <!-- Chercher les films (système de filtrage) -->
+        <Button Command="{Binding MyCommandFind}" Content="Find" HorizontalAlignment="Left" Margin="700,20,0,0" VerticalAlignment="Top" Width="75"/>
+        
+        
+        
         <TextBox HorizontalAlignment="Left" Height="20" Margin="380,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="303"/>
         <ListBox HorizontalAlignment="Left" Height="363" Margin="20,46,0,0" VerticalAlignment="Top" Width="755"/>
 

@@ -10,15 +10,16 @@ namespace Movies
     {
 
         private string _name;
-        private string _password;
+        /*        private string _password;*/
         private string _email;
 
         public RegistrationViewModel()
         {
-            MySuperCommand = new RelayCommand(Fonction, true);
+            TryRegistration = new RelayCommand(Try, true);
+
         }
 
-        public void Execute(object parameter)
+/*        public void Execute(object parameter)
         {
             var passwordBox = parameter as PasswordBox;
             var password = passwordBox.Password;
@@ -32,8 +33,17 @@ namespace Movies
                 MessageBox.Show("not good");
 
             }
-        }
+        }*/
 
+/*        public string Password
+        {
+            get { return _password; }
+            set
+            {
+                _password = value;
+                RaisePropertyChanged();
+            }
+        }*/
 
         public string Name
         {
@@ -45,15 +55,7 @@ namespace Movies
             }
         }
 
-        public string Password
-        {
-            get { return _password; }
-            set
-            {
-                _password = value;
-                RaisePropertyChanged();
-            }
-        }
+
 
         public string Email
         {
@@ -65,13 +67,16 @@ namespace Movies
             }
         }
 
-        public RelayCommand MySuperCommand { get; }
+        public RelayCommand TryRegistration { get; }
         public Execute toto { get; private set; }
 
-        private void Fonction()
+        private void Try()
         {
-            toto = new Execute();
-            //toto.MessageBox.Show(password);
+            if (Name != null)
+                if (Name.Equals("toto"))
+                    MessageBox.Show("Good, " + Name + "!");
+                else
+                    MessageBox.Show("Sorry. You cannot access this page.");
         }
 
     }
