@@ -9,6 +9,9 @@ namespace Movies
     class RegistrationViewModel : ViewModelBase
     {
 
+        public Action CloseAction { get; set; }
+
+
         private string _name;
         /*        private string _password;*/
         private string _email;
@@ -16,34 +19,36 @@ namespace Movies
         public RegistrationViewModel()
         {
             TryRegistration = new RelayCommand(Try, true);
-
+            Home = new RelayCommand(ReturnHome, true);
         }
 
-/*        public void Execute(object parameter)
-        {
-            var passwordBox = parameter as PasswordBox;
-            var password = passwordBox.Password;
 
-            if (password == "toto")
-            {
-                MessageBox.Show("good");
-            }
-            else
-            {
-                MessageBox.Show("not good");
 
-            }
-        }*/
+        /*        public void Execute(object parameter)
+                {
+                    var passwordBox = parameter as PasswordBox;
+                    var password = passwordBox.Password;
 
-/*        public string Password
-        {
-            get { return _password; }
-            set
-            {
-                _password = value;
-                RaisePropertyChanged();
-            }
-        }*/
+                    if (password == "toto")
+                    {
+                        MessageBox.Show("good");
+                    }
+                    else
+                    {
+                        MessageBox.Show("not good");
+
+                    }
+                }*/
+
+        /*        public string Password
+                {
+                    get { return _password; }
+                    set
+                    {
+                        _password = value;
+                        RaisePropertyChanged();
+                    }
+                }*/
 
         public string Name
         {
@@ -67,7 +72,16 @@ namespace Movies
             }
         }
 
+        private void ReturnHome()
+        {
+            MainWindow toto = new MainWindow();
+            CloseAction();
+            toto.ShowDialog();
+        }
+
         public RelayCommand TryRegistration { get; }
+        public RelayCommand Home { get; }
+
         public Execute toto { get; private set; }
 
         private void Try()

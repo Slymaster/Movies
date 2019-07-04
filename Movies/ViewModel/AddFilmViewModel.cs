@@ -10,11 +10,21 @@ namespace Movies
         public Action CloseAction { get; set; }
 
         public RelayCommand TryRegisterFilm { get; }
+        public RelayCommand Home { get; }
 
 
         public AddFilmViewModel()
         {
             TryRegisterFilm = new RelayCommand(AddFilm, true);
+            Home = new RelayCommand(ReturnHome, true);
+
+        }
+
+        private void ReturnHome()
+        {
+            MainWindow toto = new MainWindow();
+            CloseAction();
+            toto.Show();
         }
 
         private void AddFilm()
